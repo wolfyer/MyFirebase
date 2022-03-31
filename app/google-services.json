@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "185025642585",
+    "project_id": "myfirebase-b7e77",
+    "storage_bucket": "myfirebase-b7e77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185025642585:android:e8e6d089fba03eb7113148",
+        "android_client_info": {
+          "package_name": "com.wolfyer.myfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185025642585-qqg0qhict5854l5b7sqchh73qh3fu4ok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCKOr36u-3c-elEhgI9xTiZhwtC55kExY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "185025642585-qqg0qhict5854l5b7sqchh73qh3fu4ok.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root_layout"
+    android:background="#ebffe5"
+    android:padding="16dp"
+    android:orientation="vertical"
+    >
+    <ImageView
+        android:id="@+id/image_view_source"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/flower8"
+        />
+    <Button
+        android:id="@+id/b_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Image To Internal Storage"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        />
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ff2079"
+        android:layout_margin="10dp"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        />
+    <ImageView
+        android:id="@+id/image_view_saved"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        />
+</LinearLayout>

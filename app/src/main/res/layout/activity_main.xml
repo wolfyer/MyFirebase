@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="NAME"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <EditText
+            android:id="@+id/ed_name"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:hint="please enter your name"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="E-mail"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <EditText
+            android:id="@+id/ed_email"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:hint="please enter your e-mail"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/tv_password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="PASSWORD"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <EditText
+            android:id="@+id/ed_password"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:hint="please enter your password"
+            android:inputType="numberPassword"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/b_login"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:onClick="login"
+            android:text="Login" />
+
+        <Button
+            android:id="@+id/b_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="register"
+            android:text="register" />
+
+        <Button
+            android:id="@+id/b_read"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Read" />
+
+        <TextView
+            android:id="@+id/read_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/read_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/read_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <Button
+            android:id="@+id/b_goto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GOTO_ACYIVITY" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
