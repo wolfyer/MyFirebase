@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.text.TextUtils
 import android.util.Log
@@ -33,6 +34,7 @@ class UploadVideoActivity : AppCompatActivity() {
     private val VIDEO_PICK_GALLERY = 2
     private val VIDEO_PICK_CAMERA = 3
     private val CAMERA_REQUEST_CODE = 4
+    private val REQUEST_VIDEO_CAPTURE = 5
     private lateinit var cameraPermissions: Array<String>
     private var videoUri:Uri? = null
     //progressDialog
@@ -154,6 +156,7 @@ class UploadVideoActivity : AppCompatActivity() {
                         requestCameraPermissions()
                     }else{
                         videoPickCamera()
+                        //makeVideo()
                     }
                 }else{
                     //gallery clicked
@@ -181,7 +184,7 @@ class UploadVideoActivity : AppCompatActivity() {
         )
     }
     private fun  videoPickCamera(){
-        /*val capturedVideo = File(externalCacheDir, "My_Captured_video.mp4")
+        val capturedVideo = File(externalCacheDir, "My_Captured_video.mp4")
         if(capturedVideo.exists()) {
             capturedVideo.delete()
         }
@@ -193,9 +196,25 @@ class UploadVideoActivity : AppCompatActivity() {
             Uri.fromFile(capturedVideo)
         }
         val i = Intent("android.media.action.VIDEO_CAPTURE")
-        intent.putExtra(MediaStore.EXTRA_OUTPUT,videoUri)*/
-        val i = Intent(MediaStore.ACTION_VIDEO_CAPTURE)
+        i.putExtra(MediaStore.EXTRA_OUTPUT,videoUri)
+        //val i = Intent(MediaStore.ACTION_VIDEO_CAPTURE)
         startActivityForResult(i,VIDEO_PICK_CAMERA)
+    }
+    private fun createVideoFile(): File {
+        val fileName = "MyVideo"
+        val storageDir = getExternalFilesDir(Environment.DIRECTORY_MOVIES)
+        return File.createTempFile(
+            fileName,
+            ".mp4",
+            storageDir
+        )
+    }
+    private fun makeVideo() {
+        Intent(MediaStore.ACTION_VIDEO_CAPTURE).also { takeVideoIntent ->
+            takeVideoIntent.resolveActivity(packageManager)?.also {
+                startActivityForResult(takeVideoIntent, REQUEST_VIDEO_CAPTURE)
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -225,6 +244,7 @@ class UploadVideoActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        videoUri = data?.data
         if (resultCode == RESULT_OK){
             if (requestCode == VIDEO_PICK_CAMERA){
                 //videoUri = data?.data
@@ -241,6 +261,11 @@ class UploadVideoActivity : AppCompatActivity() {
             else if (requestCode == PICK_VIDEO || data!=null || data?.data !== null){
                 videoUri = data?.data!!
                 binding.uploadVideoView.setVideoURI(videoUri)
+            }
+            else if (requestCode == REQUEST_VIDEO_CAPTURE){
+                data?.data?.let {
+                    binding.uploadVideoView.setVideoURI(it)
+                }
             }
         }
         else{
